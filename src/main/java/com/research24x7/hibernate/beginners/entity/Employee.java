@@ -2,7 +2,15 @@
 package com.research24x7.hibernate.beginners.entity;
 
 
+import com.sun.corba.se.impl.presentation.rmi.IDLNameTranslatorImpl;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+
 import java.util.Date;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,7 +18,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
+@Getter
+@Setter
+@AllArgsConstructor
 
 @Entity (name =  "Employee")
 @Table (name = "employee")
@@ -25,11 +35,17 @@ public class Employee {
 	@Column(name="emp_name", length=28, nullable=false)
 	private String name;
 	
-	@Column(name="emp_role", length=28, nullable=false)
-	private String role;
+	@Column(name="emp_lastname", length=28, nullable=false)
+	private String lastname;
 	
-	@Column(name="sys_creation", nullable=false)
-	private Date insertTime;
+	@Column(name="emp_dni", nullable=false)
+	private Long dni;
+
+	@Column(name="emp_email", nullable=false)
+	private Long email;
+
+	@Column(name="emp_mobile", nullable=false)
+	private Long mobile;
 
 
     public Employee() {
@@ -37,53 +53,59 @@ public class Employee {
         super ();
     }
 
-    public Employee(String name, String role, Date insertTime) {
-
-        super ();
-
-        this.name = name;
-        this.role = role;
-        this.insertTime = insertTime;
-    }
-
-
-	public int getId () {
-
-		return this.id;
+	public Employee(String name, String lastname, Long dni, Long email, Long mobile) {
+		this.name = name;
+		this.lastname = lastname;
+		this.dni = dni;
+		this.email = email;
+		this.mobile = mobile;
 	}
 
-	public void setId (int id) {
+	public int getId() {
+		return id;
+	}
 
+	public void setId(int id) {
 		this.id = id;
 	}
 
-	public String getName () {
-
-		return this.name;
+	public String getName() {
+		return name;
 	}
 
-	public void setName (String name) {
-
-	    this.name = name;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getRole () {
-
-		return this.role;
+	public String getLastname() {
+		return lastname;
 	}
 
-	public void setRole (String role) {
-
-	    this.role = role;
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
 	}
 
-	public Date getInsertTime () {
-
-		return this.insertTime;
+	public Long getDni() {
+		return dni;
 	}
 
-	public void setInsertTime (Date insertTime) {
+	public void setDni(Long dni) {
+		this.dni = dni;
+	}
 
-		this.insertTime = insertTime;
+	public Long getEmail() {
+		return email;
+	}
+
+	public void setEmail(Long email) {
+		this.email = email;
+	}
+
+	public Long getMobile() {
+		return mobile;
+	}
+
+	public void setMobile(Long mobile) {
+		this.mobile = mobile;
 	}
 }
